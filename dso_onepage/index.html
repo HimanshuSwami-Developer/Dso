@@ -420,7 +420,7 @@
                 </div>
 
                 <!-- Cards -->
-                <div id="teamGrid" class="grid grid-cols-2 md:grid-cols-3 gap-10"></div>
+                <div id="teamGrid" class="grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-10"></div>
 
             </div>
         </section>
@@ -457,7 +457,8 @@
                             <div>
                                 <h6 class="text-white font-black uppercase text-xs tracking-widest mb-1">Grid
                                     Coordinates</h6>
-                                <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest">Sector 4/7, Gurgaon</p>
+                                <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest">Sector 4/7,
+                                    Gurgaon</p>
                             </div>
                         </div>
                     </div>
@@ -563,43 +564,81 @@
             </div>
         </section>
     </main>
-    <footer class="bg-background-dark border-t border-white/10 py-16 px-6 lg:px-20">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-            <div class="flex flex-col gap-4 items-center md:items-start">
-                <div class="flex items-center gap-3">
-                    <span class="material-symbols-outlined text-accent-blue">terminal</span>
-                    <h2 class="text-white text-xl font-black uppercase tracking-[0.2em]">De Silent Order</h2>
-                </div>
-                <p class="text-slate-600 text-[9px] uppercase font-black tracking-[0.4em]">Engineering the Singularity ©
-                    2024</p>
-                <p class="text-primary text-[8px] uppercase font-black tracking-widest">Build in silence.</p>
+   <footer class="bg-background-dark border-t border-white/10 px-6 lg:px-20 pt-16 pb-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+
+        <!-- Brand -->
+        <div class="flex flex-col items-center md:items-start gap-4 text-center md:text-left">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent-blue text-2xl">terminal</span>
+                <h2 class="text-white text-lg md:text-xl font-black uppercase tracking-[0.25em]">
+                    De Silent Order
+                </h2>
             </div>
-            <div class="flex gap-10">
-                <a class="text-slate-500 hover:text-accent-blue transition-colors uppercase text-[9px] font-black tracking-[0.3em]"
-                    href="#">Protocol</a>
-                <a class="text-slate-500 hover:text-accent-blue transition-colors uppercase text-[9px] font-black tracking-[0.3em]"
-                    href="#">Privacy</a>
-                <a class="text-slate-500 hover:text-accent-blue transition-colors uppercase text-[9px] font-black tracking-[0.3em]"
-                    href="#">Security</a>
-                <a class="text-slate-500 hover:text-accent-blue transition-colors uppercase text-[9px] font-black tracking-[0.3em]"
-                    href="#">Nodes</a>
-            </div>
-            <div class="flex gap-6">
-                <a class="size-10 border border-white/10 flex items-center justify-center text-slate-500 hover:border-accent-blue hover:text-accent-blue transition-all"
-                    href="#">
-                    <span class="material-symbols-outlined text-lg">memory</span>
-                </a>
-                <a class="size-10 border border-white/10 flex items-center justify-center text-slate-500 hover:border-accent-blue hover:text-accent-blue transition-all"
-                    href="#">
-                    <span class="material-symbols-outlined text-lg">code</span>
-                </a>
-                <a class="size-10 border border-white/10 flex items-center justify-center text-slate-500 hover:border-accent-blue hover:text-accent-blue transition-all"
-                    href="#">
-                    <span class="material-symbols-outlined text-lg">share</span>
-                </a>
-            </div>
+
+            <p class="text-slate-500 text-[10px] uppercase font-black tracking-[0.35em]">
+                Engineering Digital Experiences
+            </p>
+
+            <p class="text-primary text-[9px] uppercase font-black tracking-widest">
+                Build in Silence.
+            </p>
         </div>
-    </footer>
+
+        <!-- Navigation -->
+        <div class="flex flex-wrap justify-center gap-8 md:gap-10">
+            <a href="#services"
+               class="text-slate-500 hover:text-accent-blue transition-colors uppercase text-[10px] font-black tracking-[0.3em]">
+                Services
+            </a>
+            <a href="#projects"
+               class="text-slate-500 hover:text-accent-blue transition-colors uppercase text-[10px] font-black tracking-[0.3em]">
+                Projects
+            </a>
+            <a href="#contact"
+               class="text-slate-500 hover:text-accent-blue transition-colors uppercase text-[10px] font-black tracking-[0.3em]">
+                Contact
+            </a>
+            <a href="#privacy"
+               class="text-slate-500 hover:text-accent-blue transition-colors uppercase text-[10px] font-black tracking-[0.3em]">
+                Privacy
+            </a>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex justify-center md:justify-end gap-5">
+            <a href="#"
+               class="size-10 border border-white/10 flex items-center justify-center
+                      text-slate-500 hover:border-accent-blue hover:text-accent-blue
+                      hover:shadow-[0_0_12px_rgba(0,242,255,0.4)] transition-all">
+                <span class="material-symbols-outlined text-lg">code</span>
+            </a>
+
+            <a href="#"
+               class="size-10 border border-white/10 flex items-center justify-center
+                      text-slate-500 hover:border-accent-blue hover:text-accent-blue
+                      hover:shadow-[0_0_12px_rgba(0,242,255,0.4)] transition-all">
+                <span class="material-symbols-outlined text-lg">share</span>
+            </a>
+
+            <a href="#"
+               class="size-10 border border-white/10 flex items-center justify-center
+                      text-slate-500 hover:border-accent-blue hover:text-accent-blue
+                      hover:shadow-[0_0_12px_rgba(0,242,255,0.4)] transition-all">
+                <span class="material-symbols-outlined text-lg">memory</span>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/5 text-center">
+        <p class="text-slate-600 text-[9px] uppercase tracking-[0.4em] font-black">
+            © 2026 De Silent Order. All rights reserved.
+        </p>
+    </div>
+</footer>
+
 
     <!-- Custom Popup -->
     <div id="popupOverlay"
@@ -687,11 +726,11 @@
             </div>
 
            
-            <h5 class="text-white font-black uppercase text-sm mb-1 group-hover:text-accent-blue">
+            <h5 class="text-white font-black uppercase text-md mb-1 group-hover:text-accent-blue">
                     ${member.name}
                 </h5>
 
-                <p class="text-primary text-[9px] font-black uppercase tracking-widest mb-4">
+                <p class="text-accent-blue group-hover:text-white text-sm font-black uppercase tracking-widest mb-4">
                     ${member.role}
                 </p>
 
@@ -700,7 +739,7 @@
 
                     ${member.socials.linkedin ? `
                     <a href="${member.socials.linkedin}" target="_blank"
-                    class="size-10 md:size-11 border border-white/20 flex items-center justify-center
+                    class="size-10 md:size-11 border-white/20 flex items-center justify-center
                             text-white/70 hover:text-accent-blue hover:border-accent-blue transition-all">
                         <!-- LinkedIn -->
                         <svg class="w-5 h-5 md:w-6 md:h-6 fill-current" viewBox="0 0 24 24">
@@ -710,7 +749,7 @@
 
                     ${member.socials.github ? `
                     <a href="${member.socials.github}" target="_blank"
-                    class="size-10 md:size-11 border border-white/20 flex items-center justify-center
+                    class="size-10 md:size-11  border-white/20 flex items-center justify-center
                             text-white/70 hover:text-accent-blue hover:border-accent-blue transition-all">
                         <!-- GitHub -->
                         <svg class="w-5 h-5 md:w-6 md:h-6 fill-current" viewBox="0 0 24 24">
@@ -720,7 +759,7 @@
 
                     ${member.socials.instagram ? `
                     <a href="${member.socials.instagram}" target="_blank"
-                    class="size-10 md:size-11 border border-white/20 flex items-center justify-center
+                    class="size-10 md:size-11  border-white/20 flex items-center justify-center
                             text-white/70 hover:text-accent-blue hover:border-accent-blue transition-all">
                         <!-- Instagram -->
                         <svg class="w-5 h-5 md:w-6 md:h-6 fill-current" viewBox="0 0 24 24">
@@ -996,31 +1035,31 @@
 
     <script>
         const projectsData = [
-    {
-        image: "/assets/project/larsa.png",
-        sector: "Shopify",
-        status: "Active",
-        title: "Larsa Organics",
-        desc: "A modern Shopify store built to showcase organic products with a smooth shopping experience and clean design.",
-        link: "https://laarsaorganic.com/"
-    },
-    {
-        image: "/assets/project/gsecurity.png",
-        sector: "Web Development",
-        status: "Active",
-        title: "G Security & Training",
-        desc: "A professional business website designed to present security services clearly and build trust with clients.",
-        link: "https://gsecurityandtraining.co.uk/"
-    },
-    {
-        image: "/assets/project/urbenstate.png",
-        sector: "Web Development",
-        status: "Active",
-        title: "Urban State Capital",
-        desc: "A corporate website created to highlight financial services, company vision, and investor-focused information.",
-        link: "https://www.urbanshiftcapitalpvtltd.com/"
-    }
-];
+            {
+                image: "/assets/project/larsa.png",
+                sector: "Shopify",
+                status: "Active",
+                title: "Larsa Organics",
+                desc: "A modern Shopify store built to showcase organic products with a smooth shopping experience and clean design.",
+                link: "https://laarsaorganic.com/"
+            },
+            {
+                image: "/assets/project/gsecurity.png",
+                sector: "Web Development",
+                status: "Active",
+                title: "G Security & Training",
+                desc: "A professional business website designed to present security services clearly and build trust with clients.",
+                link: "https://gsecurityandtraining.co.uk/"
+            },
+            {
+                image: "/assets/project/urbenstate.png",
+                sector: "Web Development",
+                status: "Active",
+                title: "Urban State Capital",
+                desc: "A corporate website created to highlight financial services, company vision, and investor-focused information.",
+                link: "https://www.urbanshiftcapitalpvtltd.com/"
+            }
+        ];
     </script>
 
     <script>
