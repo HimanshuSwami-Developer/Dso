@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>De Silent Order | Build in Silence</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0a0c12",
+                        "accent-blue": "#00f2ff"
+                    },
+                    fontFamily: {
+                        "display": ["Orbitron", "sans-serif"],
+                        "body": ["Orbitron", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                font-family: 'Orbitron', sans-serif;
+                letter-spacing: 0.05em;
+            }
+        }
+        .service-tab {  
+            @apply text-slate-500 hover:text-white border-b-2 border-transparent pb-4 px-2 text-[10px] font-black uppercase tracking-widest transition-all;
+        }
+        .active-tab {
+            @apply text-accent-blue border-accent-blue;
+        }
+
+        .glow-accent {
+            box-shadow: 0 0 20px rgba(19, 91, 236, 0.5);
+        }
+        .blue-glow-text {
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.6);
+        }
+        .circuit-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(19, 91, 236, 0.15) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+        .glass-card {
+            background: rgba(10, 12, 18, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(19, 91, 236, 0.3);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        #menu-toggle:checked ~ #mobile-menu {
+            transform: translateX(0);
+        }
+.dropdown-item {
+    padding: 12px 16px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.dropdown-item:hover {
+    background: linear-gradient(to right, #135bec, #00f2ff);
+    color: white;
+}
+
+    </style>
+</head>
+
+<body class="bg-background-dark text-white selection:bg-primary selection:text-white">
+    <input class="hidden" id="menu-toggle" type="checkbox" />
+    <header
+        class="fixed top-0 w-full z-50 border-b border-[#135bec]/30 bg-background-dark/90 backdrop-blur-xl px-4 lg:px-20 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="size-8 text-accent-blue flex items-center justify-center">
+                    <span class="material-symbols-outlined text-3xl font-bold">terminal</span>
+                </div>
+                <h2 class="text-white text-base md:text-xl font-black leading-tight tracking-[0.1em] uppercase">De
+                    Silent Order</h2>
+            </div>
+            <nav class="hidden xl:flex items-center gap-8">
+                <a class="text-white/70 hover:text-accent-blue text-sm font-bold transition-colors uppercase tracking-widest"
+                    href="#services">Services</a>
+                <a class="text-white/70 hover:text-accent-blue text-sm font-bold transition-colors uppercase tracking-widest"
+                    href="#precision">About Us</a>
+                <a class="text-white/70 hover:text-accent-blue text-sm font-bold transition-colors uppercase tracking-widest"
+                    href="#projects">Deployments</a>
+                <a class="text-white/70 hover:text-accent-blue text-sm font-bold transition-colors uppercase tracking-widest"
+                    href="#contact">Contact</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button
+                    class="hidden sm:flex min-w-[140px] cursor-pointer items-center justify-center border border-primary/50 rounded-none h-10 px-4 bg-primary/10 text-white text-[9px] font-black uppercase tracking-[0.2em] glow-accent hover:bg-primary transition-all">
+                    Access Terminal
+                </button>
+                <label
+                    class="xl:hidden cursor-pointer size-10 flex items-center justify-center border border-primary/30 text-accent-blue"
+                    for="menu-toggle">
+                    <span class="material-symbols-outlined">menu</span>
+                </label>
+            </div>
+        </div>
+    </header>
+    <div class="fixed inset-y-0 right-0 w-64 bg-background-dark/95 backdrop-blur-2xl z-[60] border-l border-primary/20 transition-transform duration-300 transform translate-x-full xl:hidden"
+        id="mobile-menu">
+        <div class="p-6 flex flex-col h-full">
+            <div class="flex justify-end mb-10">
+                <label class="cursor-pointer text-accent-blue" for="menu-toggle">
+                    <span class="material-symbols-outlined text-3xl">close</span>
+                </label>
+            </div>
+            <nav class="flex flex-col gap-6">
+                <a class="text-white text-sm font-black uppercase tracking-[0.2em] hover:text-accent-blue"
+                    href="#services" onclick="document.getElementById('menu-toggle').checked = false">Services</a>
+                <a class="text-white text-sm font-black uppercase tracking-[0.2em] hover:text-accent-blue"
+                    href="#precision" onclick="document.getElementById('menu-toggle').checked = false">About Us</a>
+                <a class="text-white text-sm font-black uppercase tracking-[0.2em] hover:text-accent-blue"
+                    href="#projects" onclick="document.getElementById('menu-toggle').checked = false">Deployments</a>
+                <a class="text-white text-sm font-black uppercase tracking-[0.2em] hover:text-accent-blue"
+                    href="#contact" onclick="document.getElementById('menu-toggle').checked = false">Contact</a>
+            </nav>
+            <div class="mt-auto">
+                <button
+                    class="w-full border border-primary/50 py-4 text-[9px] font-black uppercase tracking-widest bg-primary/10">Access
+                    Terminal</button>
+            </div>
+        </div>
+    </div>
+    <main>
+        <section class="relative min-h-screen flex items-center circuit-bg overflow-hidden pt-20">
+            <div
+                class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-background-dark/20 to-background-dark pointer-events-none">
+            </div>
+            <div
+                class="max-w-7xl mx-auto px-6 lg:px-20 py-20 w-full grid lg:grid-cols-2 gap-16 items-center relative z-10">
+                <div class="flex flex-col gap-10">
+                    <div class="inline-flex items-center gap-3 px-4 py-2 bg-primary/10 border border-primary/30 w-fit">
+                        <span class="flex h-2 w-2 bg-accent-blue animate-pulse shadow-[0_0_8px_#00f2ff]"></span>
+                        <span
+                            class="text-accent-blue text-[10px] font-black uppercase tracking-[0.3em] leading-none">Status:
+                            Operational</span>
+                    </div>
+                    <div class="flex flex-col gap-6">
+                        <h1 class="text-white text-5xl md:text-8xl font-black leading-[0.9] tracking-tighter uppercase">
+                            BUILD IN <br /> <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-blue blue-glow-text">SILENCE</span>
+                        </h1>
+                        <p
+                            class="text-slate-400 text-lg md:text-xl font-medium leading-relaxed max-w-xl border-l-2 border-primary pl-6">
+                            Turning business ideas into reality through surgical precision and advanced neural
+                            engineering. We create resolution projects for the digital vanguard.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-6">
+                        <button
+                            class="flex min-w-[220px] cursor-pointer items-center justify-center bg-primary text-white text-xs font-black uppercase tracking-[0.25em] h-14 glow-accent hover:brightness-125 transition-all">
+                            Initiate Protocol
+                        </button>
+                        <button
+                            class="flex min-w-[220px] cursor-pointer items-center justify-center border border-white/20 text-white text-xs font-black uppercase tracking-[0.25em] h-14 hover:bg-white/5 transition-all">
+                            System Logs
+                        </button>
+                    </div>
+                </div>
+                <div class="relative flex justify-center items-center">
+                    <div class="absolute inset-0 bg-primary/20 blur-[150px] rounded-full animate-pulse"></div>
+                    <div
+                        class="relative w-full aspect-square max-w-[550px] border border-primary/30 bg-background-dark/60 p-1 group">
+                        <div class="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-accent-blue"></div>
+                        <div class="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-accent-blue">
+                        </div>
+                        <img alt="Futuristic robotic head graphic"
+                            class="w-full h-full object-cover opacity-90 grayscale group-hover:grayscale-0 transition-all duration-1000"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs4Hwc3QIE7yY4A08UhlFP-92j5a0FAFQupEyVJJNgRmRiV65u-q8fdtChG1gE6WeQR-vMVChcGlsnUV1odn2sEi1eW5MkP-dwsVHeOZdalrKhNtFO6DdFikzlvbfvXiEtgPJH5azxAdzUdJid5bekVZijFCJ7dosZpVig_0m7hEEN7I-MlHUCtutshjiVAQByLmtsnuEvV7ojRRJUsvGE1a71qyqkXnlV9WjwmALWpJqysDNdE4aBLYdNRk_0m1ak-f0FNVOhkYs" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-background-dark/80 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <div class="flex justify-between items-end border-t border-white/10 pt-4">
+                                <div class="text-[10px] font-black uppercase tracking-widest text-accent-blue">
+                                    Resolution: 8K Output</div>
+                                <div class="text-[10px] font-black uppercase tracking-widest text-white/40">Core:
+                                    Neural-01</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-24 bg-background-dark relative overflow-hidden" id="precision">
+            <div class="absolute right-0 top-0 w-1/3 h-full bg-primary/5 blur-[120px]"></div>
+            <div class="max-w-7xl mx-auto px-6 lg:px-20 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-20 items-center">
+                    <div class="flex flex-col gap-8">
+                        <h2 class="text-white text-4xl md:text-5xl font-black uppercase tracking-tight">
+                            Clear & Reliable <span class="text-primary">Precision</span>
+                        </h2>
+
+                        <p class="text-slate-400 text-lg leading-relaxed">
+                            At De Silent Order, we focus on building things the right way. Every line of code is written
+                            with
+                            care, and every design is made to be easy to use while working smoothly behind the scenes.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-8">
+                            <div class="flex flex-col gap-2 border-l-2 border-primary/40 pl-4">
+                                <span class="text-3xl font-black text-white">0.001ms</span>
+                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                                    Fast Response Time
+                                </span>
+                            </div>
+
+                            <div class="flex flex-col gap-2 border-l-2 border-primary/40 pl-4">
+                                <span class="text-3xl font-black text-white">100%</span>
+                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                                    Data Accuracy
+                                </span>
+                            </div>
+                        </div>
+
+                        <p class="text-primary text-sm font-black uppercase tracking-[0.2em]">
+                            We turn ideas into working solutions using smart and reliable technology.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="glass-card p-8 flex flex-col gap-4">
+                            <span class="material-symbols-outlined text-accent-blue text-3xl">verified</span>
+                            <h4 class="text-white font-black uppercase text-sm">High Quality</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed uppercase">
+                                Every project is built carefully and checked before delivery.
+                            </p>
+                        </div>
+
+                        <div class="glass-card p-8 flex flex-col gap-4 mt-4 md:mt-12">
+                            <span class="material-symbols-outlined text-accent-blue text-3xl">
+                                precision_manufacturing
+                            </span>
+                            <h4 class="text-white font-black uppercase text-sm">Accurate Systems</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed uppercase">
+                                Automated testing helps us deliver stable and error-free results.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-20 md:py-32 px-4 sm:px-6 lg:px-20 max-w-7xl mx-auto" id="services">
+            <div class="flex flex-col gap-12 md:gap-16">
+
+                <!-- Heading -->
+                <div class="flex flex-col gap-4 text-center items-center">
+                    <h2 class="text-white text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tight">
+                        Modular Services
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base max-w-2xl uppercase tracking-widest">
+                        Flexible solutions built to solve real business problems efficiently.
+                    </p>
+                </div>
+
+                <!-- Tabs -->
+                <div class="w-full">
+                    <div
+                        class="flex no-scrollbar overflow-x-auto md:flex-wrap justify-start md:justify-center border-b border-[#135bec]/20 gap-x-6 gap-y-4 mb-12 pb-2 scrollbar-hide">
+
+                        <button data-service="Web Development" class="service-tab active-tab whitespace-nowrap text-accent-blue border-b-2 border-accent-blue pb-3 px-2 text-sm sm:text-base md:text-[12px] lg:text-[12px]
+ font-black uppercase tracking-widest transition-all">
+                            Web Development
+                        </button>
+
+                        <button data-service="App Development" class="service-tab whitespace-nowrap text-slate-500 hover:text-white border-b-2 border-transparent pb-3 px-2 text-sm sm:text-base md:text-[12px] lg:text-[12px]
+ font-black uppercase tracking-widest transition-all">
+                            App Development
+                        </button>
+
+                        <button data-service="WordPress" class="service-tab whitespace-nowrap text-slate-500 hover:text-white border-b-2 border-transparent pb-3 px-2 text-sm sm:text-base md:text-[12px] lg:text-[12px]
+ font-black uppercase tracking-widest transition-all">
+                            WordPress
+                        </button>
+
+                        <button data-service="AI Agents" class="service-tab whitespace-nowrap text-slate-500 hover:text-white border-b-2 border-transparent pb-3 px-2 text-sm sm:text-base md:text-[12px] lg:text-[12px]
+ font-black uppercase tracking-widest transition-all">
+                            AI Agents
+                        </button>
+
+                        <button data-service="Shopify" class="service-tab whitespace-nowrap text-slate-500 hover:text-white border-b-2 border-transparent pb-3 px-2 text-sm sm:text-base md:text-[12px] lg:text-[12px]
+ font-black uppercase tracking-widest transition-all">
+                            Shopify
+                        </button>
+
+                        <button data-service="CRM" class="service-tab whitespace-nowrap text-slate-500 hover:text-white border-b-2 border-transparent pb-3 px-2 text-sm sm:text-base md:text-[12px] lg:text-[12px]
+ font-black uppercase tracking-widest transition-all">
+                            CRM
+                        </button>
+
+                        <button data-service="System Designs" class="service-tab whitespace-nowrap text-slate-500 hover:text-white border-b-2 border-transparent pb-3 px-2 text-sm sm:text-base md:text-[12px] lg:text-[12px]
+ font-black uppercase tracking-widest transition-all">
+                            System Design
+                        </button>
+                    </div>
+
+                    <!-- Cards -->
+                    <div id="serviceCards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="py-24 bg-background-dark overflow-hidden border-t border-white/5" id="projects">
+
+            <!-- Header -->
+            <div
+                class="max-w-7xl mx-auto px-6 lg:px-20 mb-16 flex flex-col md:flex-row justify-between items-end gap-8">
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-white text-4xl font-black uppercase tracking-tight">
+                        Active Deployments
+                    </h2>
+                    <p class="text-slate-500 text-sm uppercase tracking-widest">
+                        Successful resolution projects across global sectors.
+                    </p>
+                </div>
+
+                <!-- Controls -->
+                <div class="flex gap-4">
+                    <button id="projectPrev"
+                        class="size-14 border border-white/10 flex items-center justify-center text-white hover:border-accent-blue hover:text-accent-blue transition-all">
+                        <span class="material-symbols-outlined">west</span>
+                    </button>
+                    <button id="projectNext"
+                        class="size-14 border border-white/10 flex items-center justify-center text-white hover:border-accent-blue hover:text-accent-blue transition-all">
+                        <span class="material-symbols-outlined">east</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cards -->
+            <div id="projectsTrack"
+                class="flex gap-8 overflow-x-auto pb-12 px-6 lg:px-20 no-scrollbar snap-x scroll-smooth">
+            </div>
+
+        </section>
+
+        <section class="py-16 border-y border-white/5 bg-background-dark/80" id="stats">
+            <div class="max-w-7xl mx-auto px-6 lg:px-20 grid grid-cols-2 md:grid-cols-4 gap-12">
+
+                <div class="flex flex-col items-center">
+                    <span class="stat-number text-4xl md:text-6xl font-black text-white mb-2" data-target="500">0</span>
+                    <span class="text-accent-blue text-[11px] font-black uppercase tracking-[0.3em]">
+                        Projects Delivered
+                    </span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <span class="stat-number text-4xl md:text-6xl font-black text-white mb-2" data-target="100"
+                        data-suffix="%">0%</span>
+                    <span class="text-accent-blue text-[11px] font-black uppercase tracking-[0.3em]">
+                        Client Satisfaction
+                    </span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <span class="stat-number text-4xl md:text-6xl font-black text-white mb-2" data-target="99.9"
+                        data-suffix="%">0%</span>
+                    <span class="text-accent-blue text-[11px] font-black uppercase tracking-[0.3em]">
+                        System Uptime
+                    </span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <span class="stat-number text-4xl md:text-6xl font-black text-white mb-2" data-target="24"
+                        data-suffix="/7">0</span>
+                    <span class="text-accent-blue text-[11px] font-black uppercase tracking-[0.3em]">
+                        Support Availability
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="py-32 max-w-7xl mx-auto px-6 lg:px-20" id="team">
+            <div class="flex flex-col gap-20">
+
+                <!-- Heading -->
+                <div class="text-center flex flex-col items-center gap-4">
+                    <h2 class="text-white text-4xl font-black uppercase tracking-tight">
+                        System Architects
+                    </h2>
+                    <p class="text-slate-500 text-[12px] uppercase tracking-[0.4em]">
+                        The people behind your projects
+                    </p>
+                </div>
+
+                <!-- Cards -->
+                <div id="teamGrid" class="grid grid-cols-2 md:grid-cols-4 gap-1"></div>
+
+            </div>
+        </section>
+
+        <section class="py-32 border-t border-white/10" id="contact">
+            <div class="max-w-7xl mx-auto px-6 lg:px-20 grid lg:grid-cols-2 gap-24 items-start">
+                <div class="flex flex-col gap-10">
+                    <div class="flex flex-col gap-6">
+                        <h2 class="text-white text-5xl font-black uppercase tracking-tight">Signal Initiation</h2>
+                        <p
+                            class="text-slate-400 text-lg uppercase tracking-wider text-[11px] border-l-2 border-accent-blue pl-6">
+                            Transmit your requirements across our secure frequency. Turning business ideas into reality
+                            through technical excellence and quantifiable precision.
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-8">
+                        <div class="flex items-center gap-6 group">
+                            <div
+                                class="size-16 bg-white/5 border border-white/10 flex items-center justify-center text-accent-blue group-hover:border-accent-blue transition-all">
+                                <span class="material-symbols-outlined text-3xl">satellite_alt</span>
+                            </div>
+                            <div>
+                                <h6 class="text-white font-black uppercase text-xs tracking-widest mb-1">Frequency
+                                    Station</h6>
+                                <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest">
+                                    comms@desilentorder.io</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 group">
+                            <div
+                                class="size-16 bg-white/5 border border-white/10 flex items-center justify-center text-accent-blue group-hover:border-accent-blue transition-all">
+                                <span class="material-symbols-outlined text-3xl">grid_view</span>
+                            </div>
+                            <div>
+                                <h6 class="text-white font-black uppercase text-xs tracking-widest mb-1">Grid
+                                    Coordinates</h6>
+                                <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest">Sector 07,
+                                    California Cluster</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form id="contactForm" class="glass-card p-12 relative">
+                    <div class="absolute -top-1 -left-1 w-4 h-4 bg-accent-blue"></div>
+
+                    <div class="flex flex-col gap-8">
+
+                        <!-- Name + Phone -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="flex flex-col gap-3">
+                                <label class="text-white text-[9px] font-black uppercase tracking-[0.3em]">
+                                    Full Name
+                                </label>
+                                <input type="text" placeholder="Enter your name" class="bg-transparent border-0 border-b border-white/20 p-2 text-white text-sm
+                           focus:ring-0 focus:border-accent-blue transition-all outline-none" />
+                            </div>
+
+                            <div class="flex flex-col gap-3">
+                                <label class="text-white text-[9px] font-black uppercase tracking-[0.3em]">
+                                    Contact Number
+                                </label>
+                                <input type="tel" placeholder="+1 234 567 8900" class="bg-transparent border-0 border-b border-white/20 p-2 text-white text-sm
+                           focus:ring-0 focus:border-accent-blue transition-all outline-none" />
+                            </div>
+                        </div>
+
+                        <!-- Email (Full Row) -->
+                        <div class="flex flex-col gap-3">
+                            <label class="text-white text-[9px] font-black uppercase tracking-[0.3em]">
+                                Email Address
+                            </label>
+                            <input type="email" placeholder="your@email.com" class="bg-transparent border-0 border-b border-white/20 p-2 text-white text-sm
+                       focus:ring-0 focus:border-accent-blue transition-all outline-none" />
+                        </div>
+
+                        <!-- Protocol Selection -->
+                        <div class="flex flex-col gap-3 relative">
+                            <label class="text-white text-[9px] font-black uppercase tracking-[0.3em]">
+                                Service Type
+                            </label>
+
+                            <!-- Service Type -->
+                            <div class="relative">
+                                <!-- Trigger -->
+                                <button type="button" id="dropdownBtn" class="w-full mt-2 bg-transparent border-b border-white/20 p-2
+               text-white text-sm flex items-center justify-between
+               cursor-pointer focus:outline-none">
+
+                                    <span id="selectedService" class="text-slate-400">
+                                        Select a service
+                                    </span>
+
+                                    <svg class="w-4 h-4 text-accent-blue" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path d="M6 9l6 6 6-6" />
+                                    </svg>
+                                </button>
+
+                                <!-- Dropdown -->
+                                <div id="dropdownMenu" class="absolute left-0 right-0 mt-2 bg-background-dark
+               border border-white/10 shadow-xl z-50 hidden">
+
+                                    <div class="dropdown-item">Web Development</div>
+                                    <div class="dropdown-item">App Development</div>
+                                    <div class="dropdown-item">AI Agents</div>
+                                    <div class="dropdown-item">WordPress</div>
+                                    <div class="dropdown-item">Shopify</div>
+                                    <div class="dropdown-item">CRM</div>
+                                    <div class="dropdown-item">System Designs</div>
+                                </div>
+
+                            </div>
+
+                            <!-- Custom Arrow -->
+                            <span class="absolute right-2 top-[38px] text-accent-blue pointer-events-none">
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </span>
+                        </div>
+                        <input type="hidden" name="service" id="serviceInput">
+                        <!-- Message -->
+                        <div class="flex flex-col gap-3">
+                            <label class="text-white text-[9px] font-black uppercase tracking-[0.3em]">
+                                Project Details
+                            </label>
+                            <textarea rows="4" placeholder="Briefly describe your project requirements..." class="bg-transparent border-0 border-b border-white/20 p-2 text-white text-sm
+                       focus:ring-0 focus:border-accent-blue transition-all outline-none resize-none"></textarea>
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit" class="w-full h-14 bg-primary text-white font-black uppercase tracking-[0.3em]
+                   text-[11px] glow-accent hover:brightness-125 transition-all">
+                            Send Request
+                        </button>
+
+                    </div>
+                </form>
+
+            </div>
+        </section>
+    </main>
+    <footer class="bg-background-dark border-t border-white/10 py-16 px-6 lg:px-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="flex flex-col gap-4 items-center md:items-start">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-accent-blue">terminal</span>
+                    <h2 class="text-white text-xl font-black uppercase tracking-[0.2em]">De Silent Order</h2>
+                </div>
+                <p class="text-slate-600 text-[9px] uppercase font-black tracking-[0.4em]">Engineering the Singularity ©
+                    2024</p>
+                <p class="text-primary text-[8px] uppercase font-black tracking-widest">Build in silence.</p>
+            </div>
+            <div class="flex gap-10">
+                <a class="text-slate-500 hover:text-accent-blue transition-colors uppercase text-[9px] font-black tracking-[0.3em]"
+                    href="#">Protocol</a>
+                <a class="text-slate-500 hover:text-accent-blue transition-colors uppercase text-[9px] font-black tracking-[0.3em]"
+                    href="#">Privacy</a>
+                <a class="text-slate-500 hover:text-accent-blue transition-colors uppercase text-[9px] font-black tracking-[0.3em]"
+                    href="#">Security</a>
+                <a class="text-slate-500 hover:text-accent-blue transition-colors uppercase text-[9px] font-black tracking-[0.3em]"
+                    href="#">Nodes</a>
+            </div>
+            <div class="flex gap-6">
+                <a class="size-10 border border-white/10 flex items-center justify-center text-slate-500 hover:border-accent-blue hover:text-accent-blue transition-all"
+                    href="#">
+                    <span class="material-symbols-outlined text-lg">memory</span>
+                </a>
+                <a class="size-10 border border-white/10 flex items-center justify-center text-slate-500 hover:border-accent-blue hover:text-accent-blue transition-all"
+                    href="#">
+                    <span class="material-symbols-outlined text-lg">code</span>
+                </a>
+                <a class="size-10 border border-white/10 flex items-center justify-center text-slate-500 hover:border-accent-blue hover:text-accent-blue transition-all"
+                    href="#">
+                    <span class="material-symbols-outlined text-lg">share</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Popup -->
+    <div id="popupOverlay"
+        class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-[999]">
+
+        <div class="glass-card w-[90%] max-w-md p-8 relative border border-primary/40">
+
+            <!-- Accent Corner -->
+            <div class="absolute -top-1 -left-1 w-4 h-4 bg-accent-blue"></div>
+
+            <!-- Icon -->
+            <div id="popupIcon"
+                class="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full border border-primary/40">
+                <span class="material-symbols-outlined text-3xl text-accent-blue">check_circle</span>
+            </div>
+
+            <!-- Message -->
+            <h3 id="popupTitle" class="text-white text-lg font-black uppercase tracking-widest text-center mb-2">
+                Success
+            </h3>
+
+            <p id="popupMessage" class="text-slate-400 text-sm text-center leading-relaxed mb-6">
+                Your request has been sent successfully.
+            </p>
+
+            <!-- Button -->
+            <button onclick="closePopup()" class="w-full h-12 bg-primary text-white text-[10px] font-black uppercase tracking-[0.3em]
+                       glow-accent hover:brightness-125 transition-all">
+                Close
+            </button>
+        </div>
+    </div>
+
+
+    <script>
+        const teamData = [
+            {
+                name: "Xavier Thorne",
+                role: "Technical Lead",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD5GAUXt9PFyHvzUMNS2mcXRlzSNMDyby2Uect2XXe-e_dQEOzW0aHI-2QhGsZBaL3mD1XCdFXixYGvYTUcBjRYrNk3RmrYCp5vq8uA_DvPUNjZtq4jmDQLXOO1I6RcsTFgiB1F3kH-aabYthw_wPHe1ScBT7OThgOPjjx0Ao9-SELMBzZ0NLnH7vA3WIkDAJjBWFk9g5IiFIoVwYNtPSsXbEEUI4Dr4-ihmUpE8henBLZniT4zN7c-mY2bbA4VyabehGEBHlF3wQU",
+                socials: {
+                    linkedin: "#",
+                    github: "#",
+                    instagram: "#"
+                }
+            },
+            {
+                name: "Luna Vance",
+                role: "Security Specialist",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCAMtyiuit37f3JGvISVKInmviCImgrqluWCu3JT7mVdNQI0TAUzZKz7j_TD2kiDgLqljXXVssDgvspP3T7noxkMI43sGbJpVZMdtZw9UzpSP4-2pESpzOTaX-lTC7TSG0ObeZ8F9Vhis8uVE0R8wDd5TwzZ1U3u-QYbNARwvzWD_jaBpoJd_Ny3_WstlqnQsCL9o322PvPq1oVhJugFWYFldtwnILUM_qfii1NtoR9CREuc5TdeMmNgSkEIn-lXhYHEes-OmMllBU",
+                socials: {
+                    linkedin: "#",
+                    github: "#"
+                }
+            },
+            {
+                name: "Kaelen Vox",
+                role: "Hardware & Systems",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDufFFTliUz2x-Ai1WhQE5HvzvaAJpbO3stAKxiIO5wcKgmXsTf_VGeI7yMHKnL_qBKVYukcxaAkgJEkgW1l6RAw14M8pUfJAjmoPy0_vV1GRwVVTkm-m286QynxZtTSsTNaLM4ru-LSE0ygSwvojqYdUgPaFFUKpBDDtUpcT9DMhi5BryGwxN-tC6f9eR-c4hFtAxEs39Y1otpyQ8ftjKRS4R70JYhM3GTgGBh6YAaSJXtEkPALWyFttO5x6oMRZSd_lMZ3y743qU",
+                socials: {
+                    linkedin: "#",
+                    github: "#"
+                }
+            },
+            {
+                name: "Sena Prime",
+                role: "UI / UX Designer",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAPCyqYD61WG50PW2JzQJfV0fxikxR3S3ik_RNuo2JNZDLfW2ip92h_JDloXHCVsAQZ_hmQnQ_zfRAYUoP3YaWt-mKdDcg-ICkZlWuX9LctP9_KKGftykDkUjKdIwNjZPo5UqJ3GZ3AkvwKJjZT2h4Xk7b3P3u0KHBLRsBcO8a4CDAFCJXfp2ZivxdZlKU7LPYprKQDrsN0eZpx2YtIHB9qQXVG5KwEyLxuI2cFTZ9AzeZ3OcyoyRWSaESvPry16e418MRPE6pVfi8",
+                socials: {
+                    linkedin: "#",
+                    instagram: "#"
+                }
+            }
+        ];
+    </script>
+
+
+    <script>
+        const teamGrid = document.getElementById("teamGrid");
+
+        function renderTeam() {
+            teamGrid.innerHTML = "";
+
+            teamData.forEach(member => {
+                teamGrid.innerHTML += `
+        <div class="group bg-white/5 p-4 border border-transparent hover:border-primary/40 transition-all">
+
+            <div class="relative aspect-square overflow-hidden mb-6">
+                <img src="${member.image}" alt="${member.name}"
+                     class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                <div class="absolute inset-0 border-[8px] border-background-dark group-hover:border-0 transition-all"></div>
+            </div>
+
+           
+            <h5 class="text-white font-black uppercase text-sm mb-1 group-hover:text-accent-blue">
+    ${member.name}
+</h5>
+
+<p class="text-primary text-[9px] font-black uppercase tracking-widest mb-4">
+    ${member.role}
+</p>
+
+<!-- Social Icons -->
+<div class="flex items-center gap-4">
+
+    ${member.socials.linkedin ? `
+    <a href="${member.socials.linkedin}" target="_blank"
+       class="size-10 md:size-11 border border-white/20 flex items-center justify-center
+              text-white/70 hover:text-accent-blue hover:border-accent-blue transition-all">
+        <!-- LinkedIn -->
+        <svg class="w-5 h-5 md:w-6 md:h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.06 20.45H3.56V9h3.5v11.45zM5.31 7.43a2.03 2.03 0 1 1 0-4.06 2.03 2.03 0 0 1 0 4.06zM20.45 20.45h-3.5v-5.6c0-1.34-.03-3.07-1.87-3.07-1.88 0-2.17 1.46-2.17 2.97v5.7h-3.5V9h3.36v1.56h.05c.47-.89 1.6-1.82 3.3-1.82 3.53 0 4.18 2.32 4.18 5.34v6.37z"/>
+        </svg>
+    </a>` : ""}
+
+    ${member.socials.github ? `
+    <a href="${member.socials.github}" target="_blank"
+       class="size-10 md:size-11 border border-white/20 flex items-center justify-center
+              text-white/70 hover:text-accent-blue hover:border-accent-blue transition-all">
+        <!-- GitHub -->
+        <svg class="w-5 h-5 md:w-6 md:h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.74.08-.74 1.22.09 1.86 1.25 1.86 1.25 1.08 1.85 2.83 1.32 3.52 1 .11-.78.42-1.32.76-1.62-2.67-.31-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.56.12-3.25 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.69.24 2.94.12 3.25.77.84 1.23 1.91 1.23 3.22 0 4.62-2.81 5.63-5.49 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .3z"/>
+        </svg>
+    </a>` : ""}
+
+    ${member.socials.instagram ? `
+    <a href="${member.socials.instagram}" target="_blank"
+       class="size-10 md:size-11 border border-white/20 flex items-center justify-center
+              text-white/70 hover:text-accent-blue hover:border-accent-blue transition-all">
+        <!-- Instagram -->
+        <svg class="w-5 h-5 md:w-6 md:h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3.5A4.5 4.5 0 1 0 12 16a4.5 4.5 0 0 0 0-9zm0 7.5A3 3 0 1 1 12 9a3 3 0 0 1 0 6zm4.75-7.88a1.12 1.12 0 1 1-2.24 0 1.12 1.12 0 0 1 2.24 0z"/>
+        </svg>
+    </a>` : ""}
+
+</div>
+        </div>
+        `;
+            });
+        }
+
+        renderTeam();
+    </script>
+
+    <script>
+        const servicesData = {
+
+            "Web Development": [
+                {
+                    image: "https://images.unsplash.com/photo-1547658719-da2b51169166",
+                    title: "Frontend Development",
+                    desc: "Modern, responsive interfaces designed to be fast, clean, and easy to use.",
+                    points: [
+                        "Mobile-first responsive layouts",
+                        "Clean and accessible UI design",
+                        "Optimized performance and speed",
+                        "Cross-browser compatibility"
+                    ]
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c",
+                    title: "Backend Development",
+                    desc: "Robust backend systems that manage data, security, and business logic.",
+                    points: [
+                        "Scalable server architecture",
+                        "Secure authentication systems",
+                        "Efficient database management",
+                        "API-driven backend services"
+                    ]
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
+                    title: "API & Cloud Services",
+                    desc: "Cloud-ready APIs that connect platforms and services seamlessly.",
+                    points: [
+                        "REST & third-party API integration",
+                        "Cloud deployment & monitoring",
+                        "High availability infrastructure",
+                        "Scalable hosting solutions"
+                    ]
+                }
+            ],
+
+            "App Development": [
+                {
+                    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+                    title: "Mobile App Design",
+                    desc: "User-focused mobile designs that feel intuitive and smooth.",
+                    points: [
+                        "Clear user flows",
+                        "Modern UI patterns",
+                        "Consistent design language",
+                        "Optimized for touch interaction"
+                    ]
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d",
+                    title: "Cross-Platform Apps",
+                    desc: "Single codebase apps that run smoothly on Android and iOS.",
+                    points: [
+                        "Faster development cycles",
+                        "Lower maintenance cost",
+                        "Near-native performance",
+                        "Scalable app structure"
+                    ]
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b",
+                    title: "Application Security",
+                    desc: "Security-first app development to protect users and data.",
+                    points: [
+                        "Encrypted data handling",
+                        "Secure authentication flows",
+                        "Protection against vulnerabilities",
+                        "Regular security testing"
+                    ]
+                }
+            ],
+
+            "WordPress": [
+                {
+                    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+                    title: "Custom WordPress Websites",
+                    desc: "Tailored WordPress websites built for flexibility and speed.",
+                    points: [
+                        "Custom themes from scratch",
+                        "SEO-friendly structure",
+                        "Easy content management",
+                        "Scalable site architecture"
+                    ]
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4",
+                    title: "Plugin Development",
+                    desc: "Lightweight plugins designed for performance and stability.",
+                    points: [
+                        "Custom business logic",
+                        "Secure coding practices",
+                        "Clean WordPress integration",
+                        "Easy updates and maintenance"
+                    ]
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1527430253228-e93688616381",
+                    title: "Performance Optimization",
+                    desc: "Improving speed, SEO, and reliability of WordPress sites.",
+                    points: [
+                        "Core Web Vitals improvement",
+                        "Caching and CDN setup",
+                        "Database optimization",
+                        "Security hardening"
+                    ]
+                }
+            ],
+
+            "AI Agents": [
+                {
+                    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995",
+                    title: "Automation Agents",
+                    desc: "AI agents that automate repetitive business tasks.",
+                    points: [
+                        "Workflow automation",
+                        "System integrations",
+                        "Reduced manual effort",
+                        "Consistent execution"
+                    ]
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+                    title: "Decision Support Systems",
+                    desc: "AI systems that analyze data to support smarter decisions.",
+                    points: [
+                        "Real-time analytics",
+                        "Predictive insights",
+                        "Custom decision logic",
+                        "Dashboard integration"
+                    ]
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1534759846116-5799c33ce22a",
+                    title: "Learning AI Models",
+                    desc: "AI models that improve automatically with usage.",
+                    points: [
+                        "Model training pipelines",
+                        "Continuous learning",
+                        "Data monitoring",
+                        "Scalable AI infrastructure"
+                    ]
+                }
+            ],
+
+            "Shopify": [
+                {
+                    image: "https://images.unsplash.com/photo-1547658719-da2b51169166",
+                    title: "Shopify Store Development",
+                    desc: "Professional Shopify stores built to convert visitors into customers.",
+                    points: [
+                        "Custom storefront design",
+                        "Mobile-first shopping experience",
+                        "Secure checkout setup",
+                        "Product management"
+                    ]
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4",
+                    title: "App & Payment Integration",
+                    desc: "Seamless integration with apps and payment gateways.",
+                    points: [
+                        "Payment gateway setup",
+                        "Third-party app integration",
+                        "Custom Shopify apps",
+                        "Automation workflows"
+                    ]
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+                    title: "Store Optimization",
+                    desc: "Optimizing Shopify stores for speed and conversion.",
+                    points: [
+                        "Performance improvements",
+                        "UX enhancements",
+                        "Analytics setup",
+                        "Conversion tracking"
+                    ]
+                }
+            ],
+
+            "CRM": [
+                {
+                    image: "https://images.unsplash.com/photo-1556155092-490a1ba16284",
+                    title: "Custom CRM Systems",
+                    desc: "CRM platforms designed around your business workflow.",
+                    points: [
+                        "Lead and customer tracking",
+                        "Role-based access control",
+                        "Custom workflows",
+                        "Tool integrations"
+                    ]
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+                    title: "Workflow Automation",
+                    desc: "Automated processes that reduce manual work.",
+                    points: [
+                        "Sales automation",
+                        "Support workflows",
+                        "Trigger-based actions",
+                        "Efficiency improvements"
+                    ]
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7",
+                    title: "Reports & Analytics",
+                    desc: "Clear insights to support data-driven decisions.",
+                    points: [
+                        "Custom dashboards",
+                        "Performance metrics",
+                        "User activity tracking",
+                        "Actionable reports"
+                    ]
+                }
+            ],
+
+            "System Designs": [
+                {
+                    image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
+                    title: "System Architecture",
+                    desc: "Scalable and stable system foundations for complex applications.",
+                    points: [
+                        "High availability design",
+                        "Load balancing strategies",
+                        "Modular system structure",
+                        "Technology planning"
+                    ]
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31",
+                    title: "Service Orchestration",
+                    desc: "Managing communication across services and platforms.",
+                    points: [
+                        "Microservices coordination",
+                        "Workflow orchestration",
+                        "Monitoring and logging",
+                        "Failure handling"
+                    ]
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3",
+                    title: "Security & Reliability",
+                    desc: "Secure and fault-tolerant system designs.",
+                    points: [
+                        "Data encryption",
+                        "Backup and recovery",
+                        "Access control",
+                        "System monitoring"
+                    ]
+                }
+            ]
+        };
+    </script>
+
+    <script>
+        const projectsData = [
+            {
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDJVD3Jxt6BdMRvteC_WbsP1TwVg59PRXM9MuHAeXwdFDD91FdSyQPZDfsN5lfp92f8WA9IsRXp-AAu5bRJkrhTRLUxGCAPTmU2bLSCn1mWhm_yZtcVPMaZqYF7MdPQ315WEbgKGPRRO-3YhRWCPvIEqBjZAv1Xt41Jd6J-8-0wQRjIxeL9GjYybdo0_UWgUthti1YTyDGj7Iiy3u66qatEuYICb4TJHvkrXL9yT347KBaA72b-XfONgGKP6TOTWRqLocx_rpE_YmU",
+                sector: "Fintech",
+                status: "Active",
+                title: "Neon Ledger",
+                desc: "Turning business ideas into reality"
+            },
+            {
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAzSEVZoVvC_3Wr0AWo55OwJeLq9FHzT93bmad3Bo6-EyOgGgvklTiMLDO_tVQr32NLKNwdQQEEH92scqB_qZKz9pQOxSYN12dJflFEXvF6aGVNOOd3d19GSgUkYgV195mlHKi4SLCpmu2Ymvzx0M7TvBXtx5xy6fkRQfXgSm6woNxvoojm3V7KQ_W4rDF322oKBb0Eph6kuXkPkx_jtOZaqmDWelH9DcvkhDzw4idLZtQPshW_3oegPsTWnOkkytsMy9V8BnxrU6Y",
+                sector: "AI Neural",
+                status: "Beta",
+                title: "Pulse Arch",
+                desc: "Resolution project alpha version"
+            },
+            {
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA0pTwNkGu_m7n7AFy6os02Ce5LqDYamfDbT_RjsgoIhcYJ21-jESSPjIaro_QhJvgHixSm2WqMJn384As6ilZxF9LtphstzCHPdOofxbpeoVrqifPKxLb92Ja4wR2fqeR3TzX7l8yhIA0uosOwRf6EC1B0ZoP1kij-s30ToxT-BaBRegAJQxSa4kIShIgLHQcfDrsRP4ETSIsdiJjuMV6oB3yMWl-prZg6PDXQexT4RQUCVRxEVIDFsKUH3eZ3a2S_JXsxJ2E9nhY",
+                sector: "Global Net",
+                status: "Conceptual",
+                title: "Aether Net",
+                desc: "Decentralized signal architecture"
+            },
+            {
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAzSEVZoVvC_3Wr0AWo55OwJeLq9FHzT93bmad3Bo6-EyOgGgvklTiMLDO_tVQr32NLKNwdQQEEH92scqB_qZKz9pQOxSYN12dJflFEXvF6aGVNOOd3d19GSgUkYgV195mlHKi4SLCpmu2Ymvzx0M7TvBXtx5xy6fkRQfXgSm6woNxvoojm3V7KQ_W4rDF322oKBb0Eph6kuXkPkx_jtOZaqmDWelH9DcvkhDzw4idLZtQPshW_3oegPsTWnOkkytsMy9V8BnxrU6Y",
+                sector: "AI Neural",
+                status: "Beta",
+                title: "Pulse Arch",
+                desc: "Resolution project alpha version"
+            },
+            {
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA0pTwNkGu_m7n7AFy6os02Ce5LqDYamfDbT_RjsgoIhcYJ21-jESSPjIaro_QhJvgHixSm2WqMJn384As6ilZxF9LtphstzCHPdOofxbpeoVrqifPKxLb92Ja4wR2fqeR3TzX7l8yhIA0uosOwRf6EC1B0ZoP1kij-s30ToxT-BaBRegAJQxSa4kIShIgLHQcfDrsRP4ETSIsdiJjuMV6oB3yMWl-prZg6PDXQexT4RQUCVRxEVIDFsKUH3eZ3a2S_JXsxJ2E9nhY",
+                sector: "Global Net",
+                status: "Conceptual",
+                title: "Aether Net",
+                desc: "Decentralized signal architecture"
+            }
+        ];
+    </script>
+
+    <script>
+        const counters = document.querySelectorAll(".stat-number");
+        let statsStarted = false;
+
+        function animateCounter(counter) {
+            const target = parseFloat(counter.dataset.target);
+            const suffix = counter.dataset.suffix || "";
+            const duration = 1500; // ms
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const value = (progress * target).toFixed(target % 1 === 0 ? 0 : 1);
+
+                counter.textContent = value + suffix;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsStarted) {
+                    statsStarted = true;
+                    counters.forEach(counter => animateCounter(counter));
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.4 });
+
+        observer.observe(document.getElementById("stats"));
+    </script>
+
+
+    <script>
+        const projectsTrack = document.getElementById("projectsTrack");
+        const prevBtn = document.getElementById("projectPrev");
+        const nextBtn = document.getElementById("projectNext");
+
+        function renderProjects() {
+            projectsTrack.innerHTML = "";
+
+            projectsData.forEach(project => {
+                projectsTrack.innerHTML += `
+        <div class="min-w-[450px] aspect-[16/10] relative snap-start group border border-white/5">
+
+            <img src="${project.image}" alt="${project.title}"
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+
+            <div class="absolute inset-0 bg-background-dark/80 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+
+            <div class="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-background-dark to-transparent">
+
+                <div class="flex gap-3 mb-4">
+                    <span class="text-[9px] font-black uppercase tracking-[0.2em] px-3 py-1 bg-primary text-white">
+                        ${project.sector}
+                    </span>
+                    <span class="text-[9px] font-black uppercase tracking-[0.2em] px-3 py-1 bg-white/10 text-white">
+                        ${project.status}
+                    </span>
+                </div>
+
+                <h4 class="text-white text-2xl font-black uppercase mb-2 group-hover:text-accent-blue transition-colors">
+                    ${project.title}
+                </h4>
+
+                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">
+                    ${project.desc}
+                </p>
+
+            </div>
+        </div>`;
+            });
+        }
+
+        /* Controls */
+        const scrollAmount = 480;
+
+        prevBtn.addEventListener("click", () => {
+            projectsTrack.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+        });
+
+        nextBtn.addEventListener("click", () => {
+            projectsTrack.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        });
+
+        /* Init */
+        renderProjects();
+    </script>
+
+    <script>
+        const dropdownBtn = document.getElementById("dropdownBtn");
+        const dropdownMenu = document.getElementById("dropdownMenu");
+        const selectedService = document.getElementById("selectedService");
+        const serviceInput = document.getElementById("serviceInput");
+
+        dropdownBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            dropdownMenu.classList.toggle("hidden");
+        });
+
+        dropdownMenu.querySelectorAll(".dropdown-item").forEach(item => {
+            item.addEventListener("click", () => {
+                selectedService.textContent = item.textContent;
+                selectedService.classList.remove("text-slate-400");
+                selectedService.classList.add("text-white");
+
+                // store value for backend
+                serviceInput.value = item.textContent;
+
+                dropdownMenu.classList.add("hidden");
+            });
+        });
+
+        // close on outside click
+        document.addEventListener("click", (e) => {
+            if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.classList.add("hidden");
+            }
+        });
+    </script>
+
+
+
+    <script>
+        const cardsContainer = document.getElementById("serviceCards");
+        const tabs = document.querySelectorAll(".service-tab");
+
+        function renderCards(service) {
+            cardsContainer.innerHTML = "";
+
+            servicesData[service].forEach(item => {
+                cardsContainer.innerHTML += `
+        <div class="bg-[#0b0f19] border border-white/5 overflow-hidden 
+                    hover:border-primary/40 transition-all">
+
+            <!-- Image -->
+            <div class="h-44 md:h-48 w-full overflow-hidden">
+                <img src="${item.image}" 
+                     alt="${item.title}" 
+                     class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+            </div>
+
+            <!-- Content -->
+            <div class="p-6 md:p-8">
+                <h3 class="text-white text-lg md:text-xl font-black uppercase tracking-wide mb-3">
+                    ${item.title}
+                </h3>
+
+                <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                    ${item.desc}
+                </p>
+
+                <ul class="space-y-3 text-slate-300 text-sm">
+                    ${item.points.map(point => `
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                            <span>${point}</span>
+                        </li>
+                    `).join("")}
+                </ul>
+            </div>
+        </div>
+        `;
+            });
+        }
+
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => t.classList.remove("active-tab"));
+                tab.classList.add("active-tab");
+                renderCards(tab.dataset.service);
+            });
+        });
+
+        // Default load
+        renderCards("Web Development");
+    </script>
+
+    <script>
+        function showPopup(type, title, message) {
+            const overlay = document.getElementById("popupOverlay");
+            const icon = document.getElementById("popupIcon");
+            const iconSpan = icon.querySelector("span");
+            const popupTitle = document.getElementById("popupTitle");
+            const popupMessage = document.getElementById("popupMessage");
+
+            // Reset styles
+            icon.className = "w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full border transition-all";
+
+            if (type === "success") {
+                icon.classList.add("border-accent-blue");
+                iconSpan.textContent = "check_circle";
+                iconSpan.className = "material-symbols-outlined text-3xl text-accent-blue";
+            } else {
+                icon.classList.add("border-red-500");
+                iconSpan.textContent = "error";
+                iconSpan.className = "material-symbols-outlined text-3xl text-red-500";
+            }
+
+            popupTitle.textContent = title;
+            popupMessage.textContent = message;
+
+            overlay.classList.remove("hidden");
+            overlay.classList.add("flex");
+        }
+
+        function closePopup() {
+            const overlay = document.getElementById("popupOverlay");
+            overlay.classList.add("hidden");
+            overlay.classList.remove("flex");
+        }
+    </script>
+
+
+    <script>
+        const form = document.getElementById("contactForm");
+
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const name = this.querySelector('input[type="text"]').value.trim();
+            const phone = this.querySelector('input[type="tel"]').value.trim();
+            const email = this.querySelector('input[type="email"]').value.trim();
+            const service = document.getElementById("serviceInput").value.trim();
+            const message = this.querySelector("textarea").value.trim();
+
+            // 🔒 Basic validation
+            if (!name || !phone || !email || !service || !message) {
+                alert("⚠️ Please fill all fields");
+                return;
+            }
+
+            const submitBtn = this.querySelector("button[type='submit']");
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Sending...";
+
+            try {
+                const response = await fetch(" http://192.168.1.5:5000/send-email", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name,
+                        phone,
+                        email,
+                        service,
+                        message
+                    })
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    showPopup(
+                        "success",
+                        "Request Sent",
+                        "Your service request has been successfully transmitted. Our team will contact you shortly."
+                    );
+
+                    this.reset();
+                    document.getElementById("selectedService").textContent = "Select a service";
+                    document.getElementById("selectedService").classList.add("text-slate-400");
+                    document.getElementById("serviceInput").value = "";
+                } else {
+                    showPopup(
+                        "error",
+                        "Request Failed",
+                        "Something went wrong while sending your request. Please try again."
+                    );
+                }
+
+            } catch (error) {
+                console.error(error);
+                showPopup(
+                    "error",
+                    "Server Unreachable",
+                    "Our server is currently not reachable. Please try again later."
+                );
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Send Request";
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
