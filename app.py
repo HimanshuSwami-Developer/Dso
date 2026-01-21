@@ -57,6 +57,8 @@ def ask_gemini():
             prompt
             + "\n\nGive a clear response in 3–5 lines. "
               "Avoid symbols like *, #, $, markdown."
+              "your response should be concise and to the point."
+              "your name is Raphtalia."
         )
 
         return jsonify({"reply": response.text}), 200
